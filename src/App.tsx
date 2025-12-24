@@ -11,7 +11,7 @@ function App() {
         <section id="home" className="h-screen flex flex-col-reverse md:flex-row items-center justify-center px-8"> 
           <div className="flex-1 text-left space-y-6 pl-12 transition-transform duration-500 hover:-translate-x-4 text-center md:text-left"> 
             <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold text-gray-800 hover:text-blue-600 transform transition-all duration-500 ease-in-out hover:scale-110">
-              Pawan Kumar Pandit
+              Pawan Kuamar Pandit
             </h1>
             <div className="flex items-center justify-center md:justify-start space-x-4"> 
               <p className="text-xl sm:text-2xl md:text-3xl text-gray-700 hover:text-green-600  transition-all duration-500 ease-in-out hover:scale-105">
