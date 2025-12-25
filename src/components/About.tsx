@@ -1,32 +1,42 @@
-import React from 'react';
-import TechStack from './TechStack';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const About = () => {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
+
   return (
-    <section id="about" className="py-20 bg-gradient-to-br from-blue-100 via-green-100 to-blue-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8"> 
-        <div className="flex flex-col-reverse md:flex-row items-center gap-12">
-          <div className="md:w-1/3 order-2 md:order-1"> 
-            <img
-              src="/engineer.jpg" 
-              alt="Profile"
-              className="rounded-full w-48 h-48 md:w-64 md:h-64 object-cover shadow-lg mx-auto transform hover:scale-105 transition-transform duration-300"
-            />
+    <section ref={containerRef} id="about" className="relative min-h-screen bg-black text-white flex items-center justify-center">
+      <div className="container mx-auto px-6 relative z-10">
+          <div className="max-w-4xl mx-auto text-center space-y-12">
+            <motion.p 
+              className="text-3xl md:text-5xl font-light leading-relaxed"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              I am <span className="text-white font-bold">Pawan Kumar Pandit</span>.
+            </motion.p>
+            
+            <motion.p 
+              className="text-xl md:text-2xl text-gray-400 font-light leading-relaxed"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+               A passionate full-stack developer specializing in building robust web applications. 
+               My toolkit defines my craft: <span className="text-white">Node.js, Express, MongoDB, & React</span>.
+            </motion.p>
           </div>
-          <div className="md:w-2/3 order-1 md:order-2">
-            <h2 className="text-3xl font-bold text-center md:text-left mb-4">About Me</h2>
-            <p className="text-gray-600 mb-6 text-center md:text-left">
-              Welcome to my Portfolio profile! I am Pawan Kuamar Pandit, a passionate full-stack developer 
-              specializing in both frontend and backend technologies. I excel in building robust web 
-              applications with expertise in Node.js, Express.js, MongoDB, MySQL, React.js, JavaScript, 
-              TypeScript, CSS, and HTML. Currently learning docker and Kubernetes.
-            </p>
-            <TechStack />
-          </div>
-        </div>
       </div>
     </section>
   );
 };
 
-export default About; 
+export default About;

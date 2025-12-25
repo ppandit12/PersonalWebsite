@@ -1,47 +1,26 @@
 import React from 'react';
-import { FileText, Home, FolderGit2, Mail } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Navbar = () => {
   return (
-    <nav className="bg-white shadow-lg fixed w-full top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between h-auto md:h-16 relative">
-          <div className="flex items-center justify-between w-full md:w-auto">
-            <span className="text-xl font-bold text-gray-800">Portfolio</span>
-          </div>
-          {/* Navbar for medium and larger screens */}
-          <div className="hidden md:flex md:items-center md:space-x-8 w-full md:w-auto mt-4 md:mt-0">
-            <a href="#home" className="flex items-center space-x-1 text-gray-600 hover:text-blue-600 transition-all duration-300 py-2 md:py-0">
-              <Home size={20} />
-              <span>Home</span>
-            </a>
-            <a href="#about" className="flex items-center space-x-1 text-gray-600 hover:text-blue-600 transition-all duration-300 py-2 md:py-0">
-              <FileText size={20} />
-              <span>About</span>
-            </a>
-            <a href="#projects" className="flex items-center space-x-1 text-gray-600 hover:text-blue-600 transition-all duration-300 py-2 md:py-0">
-              <FolderGit2 size={20} />
-              <span>Projects</span>
-            </a>
-            <a href="#contact" className="flex items-center space-x-1 text-gray-600 hover:text-blue-600 transition-all duration-300 py-2 md:py-0">
-              <Mail size={20} />
-              <span>Contact</span>
-            </a>
-          </div>
-          {/* Resume button for medium and larger screens */}
-          <div className="hidden md:flex md:items-center">
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-all duration-300 inline-block"
-            >
-              Resume
-            </a>
-          </div>
-        </div>
+    <motion.nav 
+      className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-8 py-6 mix-blend-difference text-white"
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: 0.5 }}
+    >
+      <a href="#" className="text-xl font-bold font-display tracking-tighter uppercase">
+        Pawan Pandit
+      </a>
+
+      <div className="hidden md:flex gap-8 text-sm font-mono uppercase tracking-widest">
+        <a href="#about" className="hover:opacity-50 transition-opacity">About</a>
+        <a href="#experience" className="hover:opacity-50 transition-opacity">Journey</a>
+        <a href="#contact" className="hover:opacity-50 transition-opacity">Contact</a>
       </div>
-    </nav>
+
+
+    </motion.nav>
   );
 };
 
