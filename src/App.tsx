@@ -8,6 +8,8 @@ import CustomCursor from './components/CustomCursor';
 import Hero from './components/Hero';
 import Lenis from 'lenis';
 
+import { Analytics } from "@vercel/analytics/react"
+
 function App() {
   const [loading, setLoading] = useState(true);
 
@@ -48,6 +50,7 @@ function App() {
         </main>
         <Footer />
       </div>
+      <Analytics />
     </>
   );
 }
