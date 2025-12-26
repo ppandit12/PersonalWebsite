@@ -45,7 +45,7 @@ const Background = () => {
         className="absolute bottom-[10%] right-[10%] w-[40vh] h-[40vh] bg-fuchsia-600 rounded-full blur-[90px] opacity-30 mix-blend-screen"
       />
       
-      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] pointer-events-none mix-blend-overlay"></div>
+
     </div>
   );
 };
