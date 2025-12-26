@@ -22,7 +22,7 @@ const Hero = () => {
         <motion.div 
           className="w-[800px] h-[800px] opacity-[0.03] select-none"
           animate={{ rotate: 360 }}
-          transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
         >
           <svg viewBox="0 0 100 100" width="100%" height="100%">
             <defs>
@@ -54,7 +54,7 @@ const Hero = () => {
           className="text-[8vw] md:text-[6vw] leading-[1.1] font-display font-semibold tracking-tight max-w-5xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
         >
           Full-stack Developer
           <br />
