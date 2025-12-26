@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import About from './components/About';
 import Experience from './components/Experience';
+
 import Footer from './components/Footer';
 import Preloader from './components/Preloader';
 import CustomCursor from './components/CustomCursor';
@@ -10,9 +12,13 @@ import Lenis from 'lenis';
 
 import Background from './components/Background';
 import { Analytics } from "@vercel/analytics/react"
+import Playground from './components/Playground';
+import CelebrationOverlay from './components/CelebrationOverlay';
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const [showCelebration, setShowCelebration] = useState(false);
+  const [isTerminalOpen, setIsTerminalOpen] = useState(false);
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -33,18 +39,28 @@ function App() {
     return () => lenis.destroy();
   }, []);
 
+  const handlePreloaderComplete = () => {
+    setLoading(false);
+    setShowCelebration(true);
+  };
+
   return (
     <>
       <CustomCursor />
       <Background />
-      {loading && <Preloader onComplete={() => setLoading(false)} />}
+      <Playground isOpen={isTerminalOpen} onClose={() => setIsTerminalOpen(false)} />
+      
+      <AnimatePresence>
+        {loading && <Preloader onComplete={handlePreloaderComplete} />}
+        {showCelebration && <CelebrationOverlay onComplete={() => setShowCelebration(false)} />}
+      </AnimatePresence>
       
       <div 
         className={`min-h-screen text-white transition-opacity duration-1000 ease-out ${
-          loading ? 'opacity-0 fixed w-full' : 'opacity-100'
+          (loading || showCelebration) ? 'opacity-0 fixed w-full' : 'opacity-100'
         }`}
       >
-        <Navbar />
+        <Navbar onOpenTerminal={() => setIsTerminalOpen(true)} />
         <main>
           <Hero />
           <About />
