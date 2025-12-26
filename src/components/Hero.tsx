@@ -15,7 +15,7 @@ const Hero = () => {
   return (
     <section 
       ref={containerRef}
-      className="h-screen w-full flex flex-col items-center justify-center relative overflow-hidden bg-white text-black"
+      className="h-screen w-full flex flex-col items-center justify-center relative overflow-hidden text-white"
     >
       {/* Rotating Text Ring Background */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
@@ -30,7 +30,7 @@ const Hero = () => {
             </defs>
             <text fontSize="14" fontWeight="bold" fill="currentColor">
               <textPath xlinkHref="#circle" spacing="auto">
-                FULL-STACK DEVELOPER • DEVOPS • FULL-STACK DEVELOPER • DEVOPS •
+                FULL-STACK DEVELOPER • MOBILE DEVELOPER • FULL-STACK DEVELOPER • MOBILE DEVELOPER •
               </textPath>
             </text>
           </svg>
@@ -58,7 +58,7 @@ const Hero = () => {
         >
           Full-stack Developer
           <br />
-          <span className="text-gray-400">DevOps.</span>
+          <span className="text-gray-400">Mobile Developer.</span>
         </motion.h1>
       </motion.div>
       

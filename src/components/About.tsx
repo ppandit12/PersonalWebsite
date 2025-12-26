@@ -12,7 +12,7 @@ const About = () => {
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
 
   return (
-    <section ref={containerRef} id="about" className="relative min-h-screen bg-black text-white flex items-center justify-center">
+    <section ref={containerRef} id="about" className="relative min-h-screen text-white flex items-center justify-center">
       <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-12">
             <motion.p 

@@ -2,12 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { 
   FaJs, FaHtml5, FaCss3Alt, FaJava, FaPython, FaReact, 
-  FaNodeJs, FaDocker, FaJenkins, FaGitAlt, FaFigma 
+  FaNodeJs, FaGitAlt, FaFigma, FaAndroid, FaApple 
 } from 'react-icons/fa';
 import { 
   SiTypescript, SiNextdotjs, SiExpress, SiRedis, SiPostgresql, 
-  SiMongodb, SiKubernetes, SiTerraform, SiAnsible, 
-  SiPostman 
+  SiMongodb, SiPostman, SiExpo 
 } from 'react-icons/si';
 import { VscVscode } from "react-icons/vsc";
 
@@ -26,18 +25,17 @@ const iconMap: Record<string, React.ReactNode> = {
   "React.js": <FaReact className="text-cyan-400" />,
   "Express.js": <SiExpress className="text-gray-500" />,
   "Node.js": <FaNodeJs className="text-green-500" />,
+  "React Native": <FaReact className="text-cyan-400" />,
+  "Expo": <SiExpo className="text-black" />,
 
   // Databases
   "Redis": <SiRedis className="text-red-600" />,
   "PostgreSQL": <SiPostgresql className="text-blue-400" />,
   "MongoDB": <SiMongodb className="text-green-500" />,
 
-  // DevOps
-  "Docker": <FaDocker className="text-blue-500" />,
-  "Kubernetes": <SiKubernetes className="text-blue-600" />,
-  "Terraform": <SiTerraform className="text-purple-600" />,
-  "Ansible": <SiAnsible className="text-red-500" />,
-  "Jenkins": <FaJenkins className="text-gray-700" />,
+  // Mobile
+  "Android": <FaAndroid className="text-green-500" />,
+  "iOS": <FaApple className="text-black" />,
 
   // Tools
   "Git": <FaGitAlt className="text-orange-600" />,
@@ -73,7 +71,7 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-32 bg-white text-black relative z-10">
+    <section id="experience" className="py-32 text-white relative z-10">
       <div className="container mx-auto px-6 max-w-5xl">
         
         <motion.div 
@@ -95,7 +93,7 @@ const Experience = () => {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="group border-t border-gray-200 pt-12 grid md:grid-cols-[1fr_2fr] gap-8"
+              className="group border-t border-white/10 pt-12 grid md:grid-cols-[1fr_2fr] gap-8"
             >
               <div>
                 <span className="inline-block px-3 py-1 rounded-full border border-gray-300 text-xs font-mono uppercase tracking-wider mb-4">
@@ -111,8 +109,8 @@ const Experience = () => {
                 </h4>
                 <ul className="space-y-3">
                   {exp.description.map((item, i) => (
-                    <li key={i} className="text-gray-600 text-lg font-light leading-relaxed flex items-start">
-                      <span className="mr-3 mt-2 block w-1.5 h-1.5 bg-gray-300 rounded-full shrink-0 group-hover:bg-black transition-colors" />
+                    <li key={i} className="text-gray-400 text-lg font-light leading-relaxed flex items-start">
+                      <span className="mr-3 mt-2 block w-1.5 h-1.5 bg-gray-500 rounded-full shrink-0 group-hover:bg-white transition-colors" />
                       {item}
                     </li>
                   ))}
@@ -127,7 +125,7 @@ const Experience = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="mt-32 pt-24 border-t border-gray-200"
+            className="mt-32 pt-24 border-t border-white/10"
         >
             <motion.h3 
               initial={{ opacity: 0, y: 20 }}
@@ -143,7 +141,7 @@ const Experience = () => {
                     { category: 'Programming Languages', items: ['JavaScript', 'HTML', 'CSS', 'Java', 'Python', 'TypeScript'] },
                     { category: 'Libraries/Frameworks', items: ['Next.js', 'React.js', 'Express.js'] },
                     { category: 'Databases', items: ['Redis', 'PostgreSQL', 'MongoDB'] },
-                    { category: 'DevOps Tools', items: ['Docker', 'Kubernetes', 'Terraform', 'Ansible', 'Jenkins'] },
+                    { category: 'Mobile Development', items: ['React Native', 'Expo', 'Android', 'iOS'] },
                     { category: 'Tools / Platforms', items: ['Git', 'VS Code', 'Postman', 'Figma'] }
                 ].map((skillSet, idx) => (
                     <motion.div 
@@ -164,12 +162,11 @@ const Experience = () => {
                                 initial={{ opacity: 0, scale: 0.8 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 0.3, delay: (idx * 0.1) + (skillIdx * 0.05) }}
-                                whileHover={{ scale: 1.05, y: -2, borderColor: '#000' }}
-                                viewport={{ once: true }}
-                                className="flex items-center gap-2 bg-gray-50 px-3 py-2 rounded-lg border border-gray-100 transition-colors cursor-default"
+                                className="flex items-center gap-2 bg-white/5 px-3 py-2 rounded-lg border border-white/5 transition-colors cursor-default"
+                                whileHover={{ scale: 1.05, y: -2, borderColor: '#fff' }}
                               >
                                 <span className="text-lg">{iconMap[skill]}</span>
-                                <span className="text-sm font-medium text-gray-700">{skill}</span>
+                                <span className="text-sm font-medium text-white/80">{skill}</span>
                               </motion.div>
                             ))}
                         </div>

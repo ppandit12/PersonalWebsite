@@ -8,6 +8,7 @@ import CustomCursor from './components/CustomCursor';
 import Hero from './components/Hero';
 import Lenis from 'lenis';
 
+import Background from './components/Background';
 import { Analytics } from "@vercel/analytics/react"
 
 function App() {
@@ -35,10 +36,11 @@ function App() {
   return (
     <>
       <CustomCursor />
+      <Background />
       {loading && <Preloader onComplete={() => setLoading(false)} />}
       
       <div 
-        className={`min-h-screen bg-black text-white transition-opacity duration-1000 ease-out ${
+        className={`min-h-screen text-white transition-opacity duration-1000 ease-out ${
           loading ? 'opacity-0 fixed w-full' : 'opacity-100'
         }`}
       >

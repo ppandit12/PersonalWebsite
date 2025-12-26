@@ -47,7 +47,7 @@ const Footer = () => {
   };
 
   return (
-    <footer id="contact" className="bg-black text-white py-24 border-t border-white/10">
+    <footer id="contact" className="text-white py-24 border-t border-white/10">
       <div className="container mx-auto px-6 max-w-4xl">
         
         <div className="text-center mb-16">
