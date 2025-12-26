@@ -42,12 +42,12 @@ const Hero = () => {
         style={{ y, opacity }}
       >
         <motion.p 
-          className="text-xl md:text-2xl font-medium text-gray-600 mb-6"
+          className="text-xl md:text-2xl font-medium text-gray-300 mb-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Hey, i'm <span className="font-bold text-black">Pawan</span>
+          Hey, i'm <span className="font-bold text-white">Pawan</span>
         </motion.p>
         
         <motion.h1 
@@ -63,7 +63,7 @@ const Hero = () => {
       </motion.div>
       
       <motion.div 
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-500"
+        className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-400"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}

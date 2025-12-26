@@ -58,6 +58,11 @@ html.lenis {
   50% { opacity: 0.3; transform: scale(1.1); }
 }
 
+
+.glass-card {
+  @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-lg;
+}
+
 .animate-float {
   animation: float 20s ease-in-out infinite;
 }

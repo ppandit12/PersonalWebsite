@@ -93,7 +93,7 @@ const Experience = () => {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="group border-t border-white/10 pt-12 grid md:grid-cols-[1fr_2fr] gap-8"
+              className="glass-card group p-8 rounded-2xl grid md:grid-cols-[1fr_2fr] gap-8 transition-transform hover:-translate-y-1 duration-300"
             >
               <div>
                 <span className="inline-block px-3 py-1 rounded-full border border-gray-300 text-xs font-mono uppercase tracking-wider mb-4">
@@ -125,7 +125,7 @@ const Experience = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="mt-32 pt-24 border-t border-white/10"
+            className="mt-24"
         >
             <motion.h3 
               initial={{ opacity: 0, y: 20 }}
