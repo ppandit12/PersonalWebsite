@@ -56,7 +56,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Full-stack Developer
+          Full-stack Developer &
           <br />
           <span className="text-gray-400">Mobile Developer.</span>
         </motion.h1>
