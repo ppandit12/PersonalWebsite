@@ -1,4 +1,4 @@
-```javascript
+
 import React from 'react';
 import { motion } from 'framer-motion';
 
@@ -71,4 +71,4 @@ const Background = () => {
 };
 
 export default Background;
-```
+
