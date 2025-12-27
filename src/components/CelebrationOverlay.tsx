@@ -56,15 +56,18 @@ const CelebrationOverlay = ({ onComplete }: { onComplete?: () => void }) => {
             <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 opacity-90" />
             
             {/* Ambient Blobs */}
+            {/* Ambient Blobs - Optimized for Mobile */}
+            <div className="md:hidden absolute inset-0 bg-gradient-to-b from-purple-900/40 to-transparent blur-3xl" />
+            
             <motion.div 
                 animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
                 transition={{ duration: 8, repeat: Infinity }}
-                className="absolute top-20 left-10 w-72 h-72 bg-purple-600 rounded-full blur-[100px] mix-blend-screen opacity-30" 
+                className="hidden md:block absolute top-20 left-10 w-72 h-72 bg-purple-600 rounded-full blur-[100px] mix-blend-screen opacity-30" 
             />
             <motion.div 
                  animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.6, 0.3] }}
                  transition={{ duration: 10, repeat: Infinity, delay: 1 }}
-                className="absolute bottom-20 right-10 w-96 h-96 bg-pink-600 rounded-full blur-[120px] mix-blend-screen opacity-30" 
+                className="hidden md:block absolute bottom-20 right-10 w-96 h-96 bg-pink-600 rounded-full blur-[120px] mix-blend-screen opacity-30" 
             />
 
             {/* Santa Fly-by Container */}
