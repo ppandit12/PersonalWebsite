@@ -118,7 +118,7 @@ const Footer = () => {
 
         <div className="flex justify-center gap-8 mb-12">
             <a href="mailto:pawanpandit9834@gmail.com" className="hover:scale-110 transition-transform"><Mail size={24} /></a>
-            <a href="https://github.com/PAWANKUAMARPANDIT" target="_blank" className="hover:scale-110 transition-transform"><Github size={24} /></a>
+            <a href="https://github.com/ppandit12" target="_blank" className="hover:scale-110 transition-transform"><Github size={24} /></a>
             <a href="https://twitter.com/PawanPa98011176" target="_blank" className="hover:scale-110 transition-transform"><Twitter size={24} /></a>
             <a href="https://www.linkedin.com/in/pawan-kuamar-pandit-595676176/" target="_blank" className="hover:scale-110 transition-transform"><Linkedin size={24} /></a>
         </div>
