@@ -13,13 +13,13 @@ const Hero = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <section 
+    <section
       ref={containerRef}
       className="h-screen w-full flex flex-col items-center justify-center relative overflow-hidden text-white"
     >
       {/* Rotating Text Ring Background */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-        <motion.div 
+        <motion.div
           className="w-[800px] h-[800px] opacity-[0.03] select-none"
           animate={{ rotate: 360 }}
           transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
@@ -37,32 +37,30 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      <motion.div 
+      <motion.div
         className="relative z-10 text-center flex flex-col items-center"
         style={{ y, opacity }}
       >
-        <motion.p 
+        <motion.p
           className="text-xl md:text-2xl font-medium text-gray-300 mb-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Hey, i'm <span className="font-bold text-white">Pawan</span>
+          Hey, i'm <span className="font-bold text-white">Pawan Kuamar Pandit</span>
         </motion.p>
-        
-        <motion.h1 
+
+        <motion.h1
           className="text-[8vw] md:text-[6vw] leading-[1.1] font-display font-semibold tracking-tight max-w-5xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Full-stack Developer &
-          <br />
-          <span className="text-gray-400">Mobile Developer.</span>
+          Full-stack Developer & Devops Engineer
         </motion.h1>
       </motion.div>
-      
-      <motion.div 
+
+      <motion.div
         className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-400"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
