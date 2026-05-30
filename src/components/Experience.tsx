@@ -1,12 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  FaJs, FaHtml5, FaCss3Alt, FaJava, FaPython, FaReact, 
-  FaNodeJs, FaGitAlt, FaFigma, FaAndroid, FaApple 
+import {
+  FaJs, FaHtml5, FaCss3Alt, FaJava, FaPython, FaReact,
+  FaNodeJs, FaGitAlt, FaFigma, FaAndroid, FaApple
 } from 'react-icons/fa';
-import { 
-  SiTypescript, SiNextdotjs, SiExpress, SiRedis, SiPostgresql, 
-  SiMongodb, SiPostman, SiExpo 
+import {
+  SiTypescript, SiNextdotjs, SiExpress, SiRedis, SiPostgresql,
+  SiMongodb, SiPostman, SiExpo
 } from 'react-icons/si';
 import { VscVscode } from "react-icons/vsc";
 
@@ -60,7 +60,7 @@ const experiences = [
     company: 'Codesoft Infotech',
     role: 'Frontend Developer Intern',
     location: 'Gujarat',
-    period: 'Jan 2025 - June 2025',
+    period: 'Oct 2024 - Sept 2025',
     description: [
       'Developed user-friendly and responsive web applications using functional components.',
       'Collaborated with team members to design front-end features and optimize web performance.',
@@ -73,8 +73,8 @@ const Experience = () => {
   return (
     <section id="experience" className="py-32 text-white relative z-10">
       <div className="container mx-auto px-6 max-w-5xl">
-        
-        <motion.div 
+
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -88,7 +88,7 @@ const Experience = () => {
 
         <div className="space-y-16">
           {experiences.map((exp, index) => (
-            <motion.div 
+            <motion.div
               key={index}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -121,58 +121,58 @@ const Experience = () => {
         </div>
 
         {/* Skills Section */}
-        <motion.div 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            className="mt-24"
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          className="mt-24"
         >
-            <motion.h3 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-3xl font-display font-semibold mb-12"
-            >
-              Technical Expertise
-            </motion.h3>
+          <motion.h3
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl font-display font-semibold mb-12"
+          >
+            Technical Expertise
+          </motion.h3>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                {[
-                    { category: 'Programming Languages', items: ['JavaScript', 'HTML', 'CSS', 'Java', 'Python', 'TypeScript'] },
-                    { category: 'Libraries/Frameworks', items: ['Next.js', 'React.js', 'Express.js'] },
-                    { category: 'Databases', items: ['Redis', 'PostgreSQL', 'MongoDB'] },
-                    { category: 'Mobile Development', items: ['React Native', 'Expo', 'Android', 'iOS'] },
-                    { category: 'Tools / Platforms', items: ['Git', 'VS Code', 'Postman', 'Figma'] }
-                ].map((skillSet, idx) => (
-                    <motion.div 
-                      key={idx}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: idx * 0.1 }}
-                      viewport={{ once: true }}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            {[
+              { category: 'Programming Languages', items: ['JavaScript', 'HTML', 'CSS', 'Java', 'Python', 'TypeScript'] },
+              { category: 'Libraries/Frameworks', items: ['Next.js', 'React.js', 'Express.js'] },
+              { category: 'Databases', items: ['Redis', 'PostgreSQL', 'MongoDB'] },
+              { category: 'Mobile Development', items: ['React Native', 'Expo', 'Android', 'iOS'] },
+              { category: 'Tools / Platforms', items: ['Git', 'VS Code', 'Postman', 'Figma'] }
+            ].map((skillSet, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <h4 className="text-sm font-mono text-gray-400 uppercase tracking-widest mb-6 border-b border-gray-100 pb-2">
+                  {skillSet.category}
+                </h4>
+
+                <div className="flex flex-wrap gap-4">
+                  {skillSet.items.map((skill, skillIdx) => (
+                    <motion.div
+                      key={skill}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.3, delay: (idx * 0.1) + (skillIdx * 0.05) }}
+                      className="flex items-center gap-2 bg-white/5 px-3 py-2 rounded-lg border border-white/5 transition-colors cursor-default"
+                      whileHover={{ scale: 1.05, y: -2, borderColor: '#fff' }}
                     >
-                        <h4 className="text-sm font-mono text-gray-400 uppercase tracking-widest mb-6 border-b border-gray-100 pb-2">
-                          {skillSet.category}
-                        </h4>
-                        
-                        <div className="flex flex-wrap gap-4">
-                            {skillSet.items.map((skill, skillIdx) => (
-                              <motion.div 
-                                key={skill} 
-                                initial={{ opacity: 0, scale: 0.8 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.3, delay: (idx * 0.1) + (skillIdx * 0.05) }}
-                                className="flex items-center gap-2 bg-white/5 px-3 py-2 rounded-lg border border-white/5 transition-colors cursor-default"
-                                whileHover={{ scale: 1.05, y: -2, borderColor: '#fff' }}
-                              >
-                                <span className="text-lg">{iconMap[skill]}</span>
-                                <span className="text-sm font-medium text-white/80">{skill}</span>
-                              </motion.div>
-                            ))}
-                        </div>
+                      <span className="text-lg">{iconMap[skill]}</span>
+                      <span className="text-sm font-medium text-white/80">{skill}</span>
                     </motion.div>
-                ))}
-            </div>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
 
       </div>
