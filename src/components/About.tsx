@@ -1,14 +1,13 @@
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const About = () => {
   const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
-
   // Unused scroll variables commented out to satisfy ESLint compiler constraints
+  // const { scrollYProgress } = useScroll({
+  //   target: containerRef,
+  //   offset: ["start start", "end end"]
+  // });
   // const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   // const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
 
