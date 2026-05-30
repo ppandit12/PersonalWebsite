@@ -43,6 +43,23 @@ resource "aws_security_group" "master" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  # NodePort access for Nginx Ingress Controller
+  ingress {
+    description = "K8s Ingress NodePort HTTP"
+    from_port   = 30080
+    to_port     = 30080
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description = "K8s Ingress NodePort HTTPS"
+    from_port   = 30443
+    to_port     = 30443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   # Internal VPC cluster-wide communication
   ingress {
     description = "Full internal subnet communication"

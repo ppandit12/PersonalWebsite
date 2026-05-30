@@ -8,8 +8,9 @@ const About = () => {
     offset: ["start start", "end end"]
   });
 
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
+  // Unused scroll variables commented out to satisfy ESLint compiler constraints
+  // const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  // const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
 
   return (
     <section ref={containerRef} id="about" className="relative min-h-screen text-white flex items-center justify-center">

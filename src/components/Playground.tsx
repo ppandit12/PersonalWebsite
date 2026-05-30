@@ -65,6 +65,7 @@ const Playground: React.FC<PlaygroundProps> = ({ isOpen, onClose }) => {
         setOutput({ text: `Error: ${data.message || 'Failed to execute code.'}`, isError: true });
       }
     } catch (error) {
+      console.error('Playground Execution Failure:', error);
       setOutput({ text: 'Error: Could not connect to execution server.', isError: true });
     } finally {
       setIsRunning(false);
