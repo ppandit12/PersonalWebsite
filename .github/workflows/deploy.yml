@@ -79,7 +79,7 @@ jobs:
 
       - name: Copy Kubernetes Manifests to Master Node
         run: |
-          scp -r kubernetes/ ubuntu@${{ secrets.EC2_MASTER_PUBLIC_IP }}:/home/ubuntu/kubernetes/
+          scp -r kubernetes ubuntu@${{ secrets.EC2_MASTER_PUBLIC_IP }}:/home/ubuntu/
 
       - name: Deploy Workloads and Verify Rollout via SSH
         run: |
