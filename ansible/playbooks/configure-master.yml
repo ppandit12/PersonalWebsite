@@ -1,0 +1,9 @@
+---
+# ==========================================================
+# Phase 2 Playbook: Configure Master Node Control Plane
+# ==========================================================
+- name: Initialize Control Plane and Configure Master Node Services
+  hosts: master
+  become: yes
+  roles:
+    - master

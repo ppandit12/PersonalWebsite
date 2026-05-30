@@ -1,0 +1,15 @@
+# ==========================================================
+# Dev Environment Input Variables Configuration
+# ==========================================================
+
+# The AWS region to deploy the resources in
+aws_region = "us-east-1"
+
+# Deployment environment identifier
+environment = "dev"
+
+# Set SSH restricted block (highly recommended to set your public IP block e.g. "198.51.100.42/32")
+admin_ip = "0.0.0.0/0"
+
+# Instance sizes for Kubernetes Master and Workers (t3.medium represents minimum requirement for Kubeadm)
+instance_type = "t3.medium"

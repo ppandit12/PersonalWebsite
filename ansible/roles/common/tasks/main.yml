@@ -1,0 +1,103 @@
+---
+# ==========================================================
+# Common Node Preparation Tasks
+# ==========================================================
+
+- name: Disable SWAP immediately
+  command: swapoff -a
+  when: ansible_swaptotal_mb > 0
+  changed_when: true
+
+- name: Disable SWAP persistently in fstab
+  replace:
+    path: /etc/fstab
+    regexp: '^([^#].*?\sswap\s+.*)$'
+    replace: '# \1'
+
+- name: Enable kernel module overlay
+  modprobe:
+    name: overlay
+    state: present
+
+- name: Enable kernel module br_netfilter
+  modprobe:
+    name: br_netfilter
+    state: present
+
+- name: Configure kernel modules persistent loading
+  copy:
+    content: |
+      overlay
+      br_netfilter
+    dest: /etc/modules-load.d/k8s.conf
+    mode: '0644'
+
+- name: Apply sysctl network settings for K8s routing
+  sysctl:
+    name: "{{ item.name }}"
+    value: "{{ item.value }}"
+    state: present
+    sysctl_file: /etc/sysctl.d/k8s.conf
+    reload: yes
+  loop:
+    - { name: 'net.bridge.bridge-nf-call-iptables', value: '1' }
+    - { name: 'net.bridge.bridge-nf-call-ip6tables', value: '1' }
+    - { name: 'net.ipv4.ip_forward', value: '1' }
+
+- name: Install prerequisite packages
+  apt:
+    name:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - gnupg
+      - software-properties-common
+      - lsb-release
+    state: present
+    update_cache: yes
+
+- name: Add Docker official GPG key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+    keyring: /etc/apt/keyrings/docker.gpg
+
+- name: Add Docker official repository
+  apt_repository:
+    repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
+    state: present
+    filename: docker
+
+- name: Install Containerd and Docker Engine
+  apt:
+    name:
+      - containerd.io
+      - docker-ce
+      - docker-ce-cli
+    state: present
+    update_cache: yes
+
+- name: Create Containerd configuration directory
+  file:
+    path: /etc/containerd
+    state: directory
+    mode: '0755'
+
+- name: Populate containerd-config.toml with SystemdCgroup enabled
+  template:
+    src: containerd-config.toml.j2
+    dest: /etc/containerd/config.toml
+    mode: '0644'
+  notify: Restart Containerd
+
+- name: Start and enable Containerd service
+  systemd:
+    name: containerd
+    state: started
+    enabled: yes
+
+- name: Add current user to docker group
+  user:
+    name: "{{ ansible_user }}"
+    groups: docker
+    append: yes

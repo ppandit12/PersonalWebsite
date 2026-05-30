@@ -1,0 +1,9 @@
+---
+# ==========================================================
+# Phase 3 Playbook: Join Kubernetes Worker Nodes
+# ==========================================================
+- name: Join Workers to the Control Plane Cluster
+  hosts: workers
+  become: yes
+  roles:
+    - worker

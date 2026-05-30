@@ -1,0 +1,10 @@
+---
+# ==========================================================
+# Phase 1 Playbook: Install Kubernetes Runtimes & Packages
+# ==========================================================
+- name: Prepare OS and Install Kubernetes Components on all Nodes
+  hosts: all
+  become: yes
+  roles:
+    - common
+    - kubernetes

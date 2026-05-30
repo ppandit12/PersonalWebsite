@@ -1,0 +1,13 @@
+---
+# ==========================================================
+# Orchestrator Playbook: End-to-End Kubernetes Setup
+# ==========================================================
+
+# Phase 1: Prep and Package Installation across all Nodes
+- import_playbook: install-k8s.yml
+
+# Phase 2: Init Control Plane, Deploy CNI, Helm, and Addons
+- import_playbook: configure-master.yml
+
+# Phase 3: Securely Join Workers to Control Plane
+- import_playbook: configure-workers.yml

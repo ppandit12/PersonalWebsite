@@ -1,0 +1,17 @@
+---
+# ==========================================================
+# Kubernetes Worker Nodes Configuration Tasks
+# ==========================================================
+
+- name: Check if worker node is already joined to cluster
+  stat:
+    path: /etc/kubernetes/kubelet.conf
+  register: k8s_join_check
+
+- name: Join Worker Node to Kubernetes Cluster
+  command: "{{ hostvars['K8S_JOIN_COMMAND_HOLDER']['join_command'] }}"
+  when: 
+    - not k8s_join_check.stat.exists
+    - hostvars['K8S_JOIN_COMMAND_HOLDER']['join_command'] is defined
+  register: worker_join_output
+  changed_when: true

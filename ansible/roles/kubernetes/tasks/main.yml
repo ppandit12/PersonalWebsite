@@ -1,0 +1,45 @@
+---
+# ==========================================================
+# Kubernetes Packages Installation Tasks
+# ==========================================================
+
+- name: Create keyring directory for Kubernetes repository
+  file:
+    path: /etc/apt/keyrings
+    state: directory
+    mode: '0755'
+
+- name: Retrieve Kubernetes apt GPG signing key
+  shell: "curl -fsSL https://pkgs.k8s.io/core:/stable:/{{ k8s_version_short }}/deb/Release.key | gpg --dearmor -o /etc/apt/keyrings/kubernetes-archive-keyring.gpg"
+  args:
+    creates: /etc/apt/keyrings/kubernetes-archive-keyring.gpg
+
+- name: Register Kubernetes apt repository
+  apt_repository:
+    repo: "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://pkgs.k8s.io/core:/stable:/{{ k8s_version_short }}/deb/ /"
+    state: present
+    filename: kubernetes
+
+- name: Install Kubernetes tools (kubeadm, kubelet, kubectl)
+  apt:
+    name:
+      - "kubelet={{ k8s_version }}"
+      - "kubeadm={{ k8s_version }}"
+      - "kubectl={{ k8s_version }}"
+    state: present
+    update_cache: yes
+
+- name: Prevent automatic updates of Kubernetes components (apt-mark hold)
+  dpkg_selections:
+    name: "{{ item }}"
+    selection: hold
+  loop:
+    - kubelet
+    - kubeadm
+    - kubectl
+
+- name: Enable and start Kubelet daemon
+  systemd:
+    name: kubelet
+    state: started
+    enabled: yes
