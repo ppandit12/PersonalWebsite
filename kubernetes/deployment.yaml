@@ -20,10 +20,6 @@ spec:
       labels:
         app: node-app
     spec:
-      securityContext:
-        runAsNonRoot: true
-        runAsUser: 1000
-        fsGroup: 1000
       containers:
       - name: node-app
         # This image tag is dynamically updated by GitHub Actions in the CI/CD pipeline!
@@ -32,12 +28,6 @@ spec:
         ports:
         - containerPort: 80
           name: http
-        securityContext:
-          allowPrivilegeEscalation: false
-          readOnlyRootFilesystem: false
-          capabilities:
-            drop:
-            - ALL
         env:
         - name: NODE_ENV
           value: "production"
