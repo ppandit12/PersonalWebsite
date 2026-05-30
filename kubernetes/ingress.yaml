@@ -6,17 +6,17 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: "nginx"
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
-    nginx.ingress.kubernetes.io/ssl-redirect: "false" # Set to true once a real domain is configured
+    nginx.ingress.kubernetes.io/ssl-redirect: "true" # Automatically redirect HTTP to HTTPS
     nginx.ingress.kubernetes.io/proxy-body-size: "10m"
 spec:
   ingressClassName: nginx
-  # Uncomment the tls section below once you map your real registered domain name
-  # tls:
-  # - hosts:
-  #   - app.yourdomain.com
-  #   secretName: node-app-tls
+  tls:
+  - hosts:
+    - devops.kuamar.shop
+    secretName: node-app-tls
   rules:
-  - http: # Removed host constraint so you can access directly via the public IP for testing!
+  - host: devops.kuamar.shop
+    http:
       paths:
       - path: /
         pathType: Prefix
