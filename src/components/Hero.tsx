@@ -30,7 +30,7 @@ const Hero = () => {
             </defs>
             <text fontSize="14" fontWeight="bold" fill="currentColor">
               <textPath xlinkHref="#circle" spacing="auto">
-                FULL-STACK DEVELOPER • MOBILE DEVELOPER • FULL-STACK DEVELOPER • MOBILE DEVELOPER •
+                FULL-STACK DEVELOPER • DEVOPS ENGINEER • FULL-STACK DEVELOPER • DEVOPS ENGINEER •
               </textPath>
             </text>
           </svg>
